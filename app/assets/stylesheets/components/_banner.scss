@@ -1,0 +1,19 @@
+.banner {
+  // height: 320px;
+  height: 50vh;
+  min-height: 420px;
+  background-size: cover;
+  background-position: 50% 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+  color: white;
+  h1 {
+    // font-family: $m-title;
+    font-size: 68px;
+  }
+}
