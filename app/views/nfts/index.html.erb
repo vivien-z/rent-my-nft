@@ -1,22 +1,24 @@
 <div class="container">
-  <div>search and filter</div>
-  <div>list all nfts</div>
-  <div>map</div>
-  <div>
-    <% @nfts.each do |nft| %>
-      <div class="card">
-        <div class="">
-          <% if nft.image.attached? %>
-            <%= cl_image_tag nft.image.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-              <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" alt="pic" class="card-image-show-default">
-          <% end %>
+  <div class="row">search and filter</div>
+  <div class="row d-flex">
+    <div>
+      <% @nfts.each do |nft| %>
+        <div class="card">
+          <div>
+            <% if nft.image.attached? %>
+              <%= cl_image_tag nft.image.key, class: "card-image" %>
+            <% else %>
+                <img src="https://res.cloudinary.com/vivienz/image/upload/v1622743600/utamb4q9bjfe5st9zumg0wxlxo2r.jpg" alt="pic" class="card-image">
+            <% end %>
+          </div>
+          <div class="border">
+              <%= link_to "#{nft.name.capitalize}", nft_path(nft) %>
+              <div id="price"><%= number_to_currency(nft.price) %> /day</div>
+          </div>
         </div>
-        <div class="border">
-            <%= link_to "#{nft.name.capitalize}", nft_path(nft) %>
-            <div id="price"><%= number_to_currency(nft.price) %> /day</div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div>map</div>
   </div>
 </div>
