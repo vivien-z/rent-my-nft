@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     authorize(@reservation)
 
     if @reservation.save
-      redirect_to reservation_path(@reservation), notice: "NFT successfully reserved."
+      redirect_to nft_path(@nft), notice: "NFT successfully reserved."
     else
       render 'nfts/show'
     end
