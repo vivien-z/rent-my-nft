@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between bg-dark <%= yield(:nav_home) %>">
   <div class="nav-icon">
   <% if yield(:navbar_icon) == "RenT MY NFT" %>
     <%= link_to "/", class: "navbar-icon" do %>
