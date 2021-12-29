@@ -1,0 +1,17 @@
+.navbar {
+  justify-content: space-between;
+}
+
+.navbar {
+  padding: 1rem 1.75rem;
+  justify-content: space-between;
+  background: $m-black !important;
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
