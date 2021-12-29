@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 border rounded p-5 my-5">
+      <h4 class="text-center mb-4">Edit: <%= @nft.name.capitalize %></h4>
+      <%= simple_form_for(@nft) do |f| %>
+        <div class="form-row">
+          <div class="col"><%= f.input :name %></div>
+          <div class="col"><%= f.input :price, label: "Price $/daily" %></div>
+        </div>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :image, as: :file %>
+        <%= f.button :submit, "Confirm",class: "btn btn-dark mt-3 w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>

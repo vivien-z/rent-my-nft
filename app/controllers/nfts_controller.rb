@@ -1,6 +1,12 @@
 class NftsController < ApplicationController
   def index
-    @Nfts = policy_scope(Nft)
+    @nfts = policy_scope(Nft)
+  end
+
+  def show
+    @nft = Nft.find(params[:id])
+    @reservation = Reservation.new
+    authorize(@nft)
   end
 
   def new
@@ -18,6 +24,30 @@ class NftsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @nft = Nft.find(params[:id])
+    authorize(@nft)
+  end
+
+  def update
+    @nft = Nft.find(params[:id])
+    authorize(@nft)
+
+    if @nft.update(nft_params)
+      redirect_to nft_path(@nft)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @nft = Nft.find(params[:id])
+    @nft.destroy
+    authorize(@nft)
+    # redirect to the url provided in the query string (after || save from code break situation)
+    redirect_to params[:redirect_to] || nfts_path
   end
 
   private

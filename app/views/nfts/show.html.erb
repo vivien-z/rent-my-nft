@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="border">
+      <% if @nft.image.attached? %>
+        <%= cl_image_tag @nft.image.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+          <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" alt="pic" class="card-image-show-default">
+      <% end %>
+    </div>
+    <div class="border">
+        <h2> <%= @nft.name.capitalize %></h2>
+        <div class="">
+          <% if current_user == @nft.user %>
+            <div class="top-right-button">
+              <%= link_to "Edit", edit_nft_path %>
+              <%= link_to "Delete", nft_path(@nft, { redirect_to: nfts_path }), method: :delete, data: { confirm: "Are you sure?"} %>
+            </div>
+          <% end %>
+        </div>
+        <div><%= number_to_currency(@nft.price) %> /day</div>
+        <div><%= @nft.address %></div>
+        <div><%= @nft.description %></div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">reservation form to be added</div>
+</div>
+ 
