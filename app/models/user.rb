@@ -3,5 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reservations
   has_many :nfts
-  has_many :nfts, through: :reservations
+  # has_many :nfts, through: :reservation
 end

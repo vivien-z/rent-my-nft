@@ -1,3 +1,18 @@
 <div class="container">
   <h2>My Profile</h2>
+
+  <h4>My NFT Listings</h4>
+  <% if @user.nfts.count > 0 %>
+    <%= render 'nft_listing' %>
+  <% else %>
+    <%= link_to "+ NFT", new_nft_path, class: "" %>
+  <% end %>
+
+  <h4>My Reservations</h4>
+  <% if @user.reservations.count > 0 %>
+    <%= render 'nft_reservation' %>
+  <% else %>
+    <%= link_to "Explore", nfts_path, class: "" %>
+  <% end %>
+
 </div>
