@@ -7,10 +7,13 @@
             <%= reservation.starting_date %>
             <%= reservation.ending_date %>
           </div>
-          <%= link_to "Edit", edit_reservation_path(reservation), class: '' %>
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editReservationModal">Edit</button>
           <%= link_to "Delete", reservation_path(reservation, { redirect_to: user_path(current_user) }),
             method: :delete, data: { confirm: "Are you sure you want to cancel this reservation?"}, class: '' %>
         </div>
+        <!-- Modal -->
+          <%= render partial: "edit_reservation_modal", locals: { reservation: reservation } %>
+        <!-- Modal end -->
     <% end %>
   </div>
 </div>
