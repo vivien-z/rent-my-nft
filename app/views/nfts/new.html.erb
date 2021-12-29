@@ -3,11 +3,13 @@
     <div class="col-8 border rounded p-5 my-5">
       <h4 class="text-center mb-4">Add a new NFT listing</h4>
       <%= simple_form_for(@nft) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :price, label: "Price $/daily" %>
+        <div class="form-row">
+          <div class="col"><%= f.input :name %></div>
+          <div class="col"><%= f.input :price, label: "Price $/daily" %></div>
+        </div>
         <%= f.input :address %>
         <%= f.input :description %>
-        <%# <%= f.input :photos, as: :file, input_html: { multiple: true} %>
+        <%= f.input :image, as: :file %>
         <%= f.button :submit, "Confirm",class: "btn btn-dark mt-3 w-100" %>
       <% end %>
     </div>

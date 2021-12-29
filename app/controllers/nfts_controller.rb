@@ -7,4 +7,22 @@ class NftsController < ApplicationController
     @nft = Nft.new
     authorize(@nft)
   end
+
+  def create
+    @nft = Nft.new(nft_params)
+    @nft.user = current_user
+    authorize(@nft)
+
+    if @nft.save
+      redirect_to nft_path(@nft)
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def nft_params
+    params.require(:nft).permit(:name, :price, :address, :description, :image)
+  end
 end
