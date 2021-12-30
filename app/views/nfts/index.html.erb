@@ -1,5 +1,12 @@
 <div class="container">
-  <div class="row">search and filter</div>
+  <div class="row d-flex justify-content-between">
+    <div>Left: search bar</div>
+    <div class="d-flex">
+      <div>Filter</div>
+      <div>Sort</div>
+      <div>Map toggle</div>
+    </div>
+  </div>
   <div class="row d-flex">
     <div>
       <% @nfts.each do |nft| %>
