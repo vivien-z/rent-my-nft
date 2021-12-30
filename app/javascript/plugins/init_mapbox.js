@@ -1,6 +1,8 @@
 import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+mapboxgl.accessToken = process.env.MAPBOX_API_KEY
+
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -14,7 +16,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/qqbbsmith/ckxs9m6xu2k0o14t8cxud33ag',
+      style: 'mapbox://styles/qqbbsmith/ckxt5jt160py914lfzmg1k9sd',
       center: [-0.1404545, 51.5220163], 
       zoom: 16
     });
