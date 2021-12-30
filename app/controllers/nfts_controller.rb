@@ -1,6 +1,13 @@
 class NftsController < ApplicationController
   def index
     @nfts = policy_scope(Nft)
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @nfts.geocoded.map do |nft|
+      {
+        lat: nft.latitude,
+        lng: nft.longitude
+      }
+    end
   end
 
   def show
