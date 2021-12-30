@@ -1,12 +1,13 @@
 class NftsController < ApplicationController
   def index
-    # @nfts = policy_scope(Nft)
-    # sorting
     if params[:sort].present?
-      @nfts = policy_scope(Nft).order(params[:sort] + " " + params[:order])
+      @nfts = policy_scope(Nft).order(params[:sort] + " " + params[:order]) # sorting
+    elsif params[:query].present?
+      @nfts = policy_scope(Nft).find_by_name(params[:query]) # Search
     else
       @nfts = policy_scope(Nft)
     end
+
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @nfts.geocoded.map do |nft|
       {
@@ -67,5 +68,9 @@ class NftsController < ApplicationController
 
   def nft_params
     params.require(:nft).permit(:name, :price, :address, :description, :image)
+  end
+
+  def search_by_nft_name(name)
+    return this.find{|nft| nft.name.include?(params[:query])}
   end
 end
