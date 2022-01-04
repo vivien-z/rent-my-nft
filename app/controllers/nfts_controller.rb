@@ -9,11 +9,13 @@ class NftsController < ApplicationController
     end
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @nfts.geocoded.map do |nft|
-      {
-        lat: nft.latitude,
-        lng: nft.longitude
-      }
+    if @nfts.present?
+      @markers = @nfts.geocoded.map do |nft|
+        {
+          lat: nft.latitude,
+          lng: nft.longitude
+        }
+      end
     end
   end
 

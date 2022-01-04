@@ -6,6 +6,7 @@
 
   <div class="row d-flex">
     <div>
+    <% if @nfts %>
       <% @nfts.each do |nft| %>
         <div class="card">
           <div>
@@ -21,6 +22,9 @@
           </div>
         </div>
       <% end %>
+    <% else %>
+    <div>No matching search result found. Please try again!</div>
+    <% end %>
     </div>
 
   <div id="map"

@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 # Gemfile
+# gem 'pg'
 gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -35,7 +36,7 @@ gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
-gem 'pg_search', '~> 2.3.0'
+# gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
