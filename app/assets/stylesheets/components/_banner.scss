@@ -1,9 +1,6 @@
 .banner {
-  // height: 320px;
   min-height: 460px;
-  height: 90vh;
-  // height: calc(100% - 1rem);
-  // height: 100vh;
+  height: calc(100vh - 80px);
   background-size: cover;
   background-position: 50% 8%;
   display: flex;
