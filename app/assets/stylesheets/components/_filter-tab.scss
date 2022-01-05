@@ -1,0 +1,9 @@
+.tab-list {
+  margin: 1.5rem 0 0.5rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid $m-black;
+  justify-content: space-between;
+  .tab-option {
+    margin-left: 1.5rem;
+  }
+}
