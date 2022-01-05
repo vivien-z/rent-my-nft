@@ -1,7 +1,7 @@
 <div>
   <%= form_tag nfts_path, method: :get, class: "d-flex justify-content-center" do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :search,
+        params[:search],
         class: "w-50 mr-3",
         placeholder: "Search by name"
       %>
