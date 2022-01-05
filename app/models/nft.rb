@@ -1,4 +1,6 @@
 class Nft < ApplicationRecord
+  scope :by_price, -> price_min, price_max { where("price >= ? AND price <= ?", price_min, price_max) }
+
   include PgSearch::Model
 
   belongs_to :user

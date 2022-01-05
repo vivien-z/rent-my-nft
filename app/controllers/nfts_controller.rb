@@ -1,6 +1,8 @@
 class NftsController < ApplicationController
+  has_scope :by_price, :using => [:price_min, :price_max]
+
   def index
-    @nfts = policy_scope(Nft)
+    @nfts = apply_scopes(policy_scope(Nft)).all
     @nfts = @nfts.order(params[:sort] + " " + params[:order]) if params[:sort].present? # sorting
     @nfts = @nfts.search_by_nft_name(params[:search]) if params[:search].present? # Search
 
