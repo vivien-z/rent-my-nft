@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :get_reservation, only: [:edit, :update, :destroy]
+
   def create
     @reservation = Reservation.new(reservation_params)
     @nft = Nft.find(params[:nft_id])
@@ -15,12 +17,10 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    @reservation = Reservation.find(params[:id])
     authorize(@reservation)
   end
 
   def update
-    @reservation = Reservation.find(params[:id])
     authorize(@reservation)
 
     if @reservation.update(reservation_params)
@@ -31,9 +31,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = Reservation.find(params[:id])
     @reservation.destroy
-
     authorize(@reservation)
 
     redirect_to user_path(current_user)
@@ -43,5 +41,9 @@ class ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(:starting_date, :ending_date, :address)
+  end
+
+  def get_reservation
+    @reservation = Reservation.find(params[:id])
   end
 end

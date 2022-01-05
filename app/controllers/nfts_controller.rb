@@ -1,24 +1,16 @@
 class NftsController < ApplicationController
+  before_action :get_nft, only: [:show, :edit, :update, :destroy]
   has_scope :by_price, type: :hash, using: [:min, :max], as: :price
 
   def index
     @nfts = apply_scopes(policy_scope(Nft))
-    # @nfts = @nfts.order(params[:sort] + " " + params[:order]) if params[:sort].present? # sorting
-    # @nfts = @nfts.search_by_nft_name(params[:search]) if params[:search].present? # Search
+    @nfts = @nfts.order(params[:sort] + " " + params[:order]) if params[:sort].present? # sorting
+    @nfts = @nfts.search_by_nft_name(params[:search]) if params[:search].present? # Search
 
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    if @nfts.present?
-      @markers = @nfts.geocoded.map do |nft|
-        {
-          lat: nft.latitude,
-          lng: nft.longitude
-        }
-      end
-    end
+    @markers = set_geo_marker(@nfts) # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
   end
 
   def show
-    @nft = Nft.find(params[:id])
     @reservation = Reservation.new
     authorize(@nft)
   end
@@ -41,12 +33,10 @@ class NftsController < ApplicationController
   end
 
   def edit
-    @nft = Nft.find(params[:id])
     authorize(@nft)
   end
 
   def update
-    @nft = Nft.find(params[:id])
     authorize(@nft)
 
     if @nft.update(nft_params)
@@ -57,10 +47,9 @@ class NftsController < ApplicationController
   end
 
   def destroy
-    @nft = Nft.find(params[:id])
     @nft.destroy
     authorize(@nft)
-    # redirect to the url provided in the query string (after || save from code break situation)
+
     redirect_to params[:redirect_to] || nfts_path
   end
 
@@ -70,7 +59,18 @@ class NftsController < ApplicationController
     params.require(:nft).permit(:name, :price, :address, :description, :image)
   end
 
-  # def search_by_nft_name(name)
-  #   return this.find{|nft| nft.name.include?(params[:search])}
-  # end
+  def get_nft
+    @nft = Nft.find(params[:id])
+  end
+
+  def set_geo_marker(nfts)
+    if @nfts.present?
+      @markers = nfts.geocoded.map do |nft|
+        {
+          lat: nft.latitude,
+          lng: nft.longitude
+        }
+      end
+    end
+  end
 end
