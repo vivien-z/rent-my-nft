@@ -37,6 +37,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
+gem 'has_scope'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

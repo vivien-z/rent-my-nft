@@ -1,8 +1,10 @@
 class NftsController < ApplicationController
+  has_scope :by_price, type: :hash, using: [:min, :max], as: :price
+
   def index
-    @nfts = policy_scope(Nft)
-    @nfts = @nfts.order(params[:sort] + " " + params[:order]) if params[:sort].present? # sorting
-    @nfts = @nfts.search_by_nft_name(params[:search]) if params[:search].present? # Search
+    @nfts = apply_scopes(policy_scope(Nft))
+    # @nfts = @nfts.order(params[:sort] + " " + params[:order]) if params[:sort].present? # sorting
+    # @nfts = @nfts.search_by_nft_name(params[:search]) if params[:search].present? # Search
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     if @nfts.present?
