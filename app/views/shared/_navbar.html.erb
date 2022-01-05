@@ -10,8 +10,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <% if user_signed_in? %>
         <li class="nav-item active">
+          <%= link_to "Home", "/", class: "nav-link" %>
+        </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
           <%= link_to "Explore", nfts_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
