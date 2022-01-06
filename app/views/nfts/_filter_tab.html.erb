@@ -4,15 +4,14 @@
       <%= button_tag :submit, class: "btn btn-outline-dark search-btn" do %>
         <i class="fas fa-search"></i>
       <% end %>
-    
   <% end %>
 
   <div class="d-flex align-items-center">
-    <div class="tab-option toggle-btn"><span>Filter</span></div>
-    <div class="tab-option toggle-btn"><span>Sort</span></div>
+    <div class="tab-option dropdown-toggle toggle-btn" data-toggle="filter"><span>Filter</span></div>
+    <div class="tab-option dropdown-toggle toggle-btn" data-toggle="sort"><span>Sort</span></div>
     <div class="tab-option">
       <span>Map</span>
-      <label class="switch">
+      <label class="switch mb-0">
         <input type="checkbox" class="toggle toggle-btn" data-toggle="map" >
         <span class="slider round"></span>
       </label>
@@ -20,21 +19,22 @@
   </div>
 </div>
 
-<div class="tab-content">
-  <div>
-      <%= form_tag nfts_path, method: :get, class: "d-flex justify-content-center fade" do %>
-      <span class="">Price</span>
-      <%= text_field_tag :price_min, params.dig(:price, :min), name: 'price[min]', class: "w-50 mr-3 form-control", placeholder: "Min..." %>
-      <%= text_field_tag :price_max, params.dig(:price, :max), name: 'price[max]', class: "w-50 mr-3 form-control", placeholder: "Max..." %>
-      <%= submit_tag "Search", class: "btn btn-dark" %>
-      <%= link_to 'Clear', nfts_path, class: 'btn btn-link' %>
+<div class="tab-content d-flex ml-auto mb-3">
+  <div id="filter" style="display: none" >
+      <%= form_tag nfts_path, method: :get, class: "d-flex justify-content-center align-items-center" do %>
+        <span class="mr-2">Price</span>
+        <%= text_field_tag :price_min, params.dig(:price, :min), name: 'price[min]', class: "w-50 mr-2 form-control", placeholder: "Min..." %>
+        <%= text_field_tag :price_max, params.dig(:price, :max), name: 'price[max]', class: "w-50 mr-2 form-control", placeholder: "Max..." %>
+        <%= submit_tag "Filter", class: "btn btn-dark" %>
     <% end %>
   </div>
 
-  <div class="fade show">
-    <%= link_to "Name", sort: :name, order: :ASC %>
-    <%= link_to "Latest", sort: :created_at, order: :DESC %>
-    <%= link_to "Price Increase", sort: :price, order: :ASC %>
-    <%= link_to "Price Decrease", sort: :price, order: :DESC %>
+  <div id="sort"style="display: none" >
+    <div  class="d-flex justify-content-center align-items-center" >
+      <%= link_to "Name", sort: :name, order: :ASC %>
+      <%= link_to "Latest", sort: :created_at, order: :DESC %>
+      <%= link_to "Price Increase", sort: :price, order: :ASC %>
+      <%= link_to "Price Decrease", sort: :price, order: :DESC %>
+    </div>
   </div>
 </div>

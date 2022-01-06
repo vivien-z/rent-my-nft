@@ -5,12 +5,15 @@
   </div>
 
   <div class="row d-flex">
-    <%= render 'list_nfts' %>
+    <div class="d-flex">
+      <%= render 'list_nfts' %>
+    </div>
+
+    <div id="map"
+      style="width: 60%; height: calc(100vh - 160px); display: block;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 
-  <div id="map"
-    style="width: 50vw; height: calc(100vh - 76px); display: block;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
 </div>
