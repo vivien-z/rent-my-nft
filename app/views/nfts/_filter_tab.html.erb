@@ -8,9 +8,12 @@
   <% end %>
 
   <div class="d-flex align-items-center">
-    <div class="tab-option"><span>Filter</span></div>
-    <div class="tab-option dropdown"><span class="dropdown-toggle">Sort</span></div>
-    <div class="tab-option"><span>Map toggle</span></div>
+    <div class="tab-option toggle-btn"><span>Filter</span></div>
+    <div class="tab-option toggle-btn"><span>Sort</span></div>
+    <div class="tab-option">
+      <span>Map toggle</span>
+      <%= button_tag "Map", class: "toggle-btn", data: { toggle: "map" } %>
+    </div>
   </div>
 </div>
 

@@ -10,6 +10,7 @@ import "channels"
 
 import 'bootstrap'
 import { setActiveOnclick } from "../components/set_active_onclick";
+import { toggleDivDisplayOnclick } from "../components/toggle_div_display_onclick";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatpickr } from "../plugins/flatpickr";
 
@@ -19,6 +20,7 @@ ActiveStorage.start()
 
 document.addEventListener('turbolinks:load', () => {
   setActiveOnclick();
+  toggleDivDisplayOnclick();
   initFlatpickr();
   initMapbox();
 });
