@@ -1,0 +1,27 @@
+.tab-list {
+  margin: 1.5rem 0 0.5rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid $m-black;
+  justify-content: space-between;
+  .tab-option {
+    margin-left: 2rem;
+  }
+}
+
+.search-bar {
+  width: 30%;
+  .search-btn {
+    border: none;
+    padding: 0.25rem 1.25rem
+  }
+}
+.search-input {
+  border: none;
+  // border-bottom: 1px solid $m-black;
+  &:focus {
+    outline: rgb(173, 181, 189) auto 1px;
+    // outline: -webkit-focus-ring-color auto 1px;
+    outline-color: rgb(173, 181, 189);
+    outline-width: 4px;
+  }
+}

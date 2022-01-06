@@ -1,7 +1,7 @@
 <div class="container">
 
-  <div class="filter-bar row d-flex">
-    <%= render 'filter_bar' %>
+  <div class="filter-tab row d-flex">
+    <%= render 'filter_tab' %>
   </div>
 
   <div class="row d-flex">
@@ -9,7 +9,7 @@
   </div>
 
   <div id="map"
-    style="width: 50vw; height: calc(100vh - 76px);"
+    style="width: 50vw; height: calc(100vh - 76px); display: block;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

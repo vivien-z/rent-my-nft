@@ -1,0 +1,40 @@
+<div class="tab-list d-flex w-100">
+  <%= form_tag nfts_path, method: :get, class: "search-bar d-flex justify-content-center" do %>
+      <%= text_field_tag :search, params[:search], class: "search-input px-2 w-100", placeholder: "Search by name" %>
+      <%= button_tag :submit, class: "btn btn-outline-dark search-btn" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    
+  <% end %>
+
+  <div class="d-flex align-items-center">
+    <div class="tab-option toggle-btn"><span>Filter</span></div>
+    <div class="tab-option toggle-btn"><span>Sort</span></div>
+    <div class="tab-option">
+      <span>Map</span>
+      <label class="switch">
+        <input type="checkbox" class="toggle toggle-btn" data-toggle="map" >
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div>
+      <%= form_tag nfts_path, method: :get, class: "d-flex justify-content-center fade" do %>
+      <span class="">Price</span>
+      <%= text_field_tag :price_min, params.dig(:price, :min), name: 'price[min]', class: "w-50 mr-3 form-control", placeholder: "Min..." %>
+      <%= text_field_tag :price_max, params.dig(:price, :max), name: 'price[max]', class: "w-50 mr-3 form-control", placeholder: "Max..." %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
+      <%= link_to 'Clear', nfts_path, class: 'btn btn-link' %>
+    <% end %>
+  </div>
+
+  <div class="fade show">
+    <%= link_to "Name", sort: :name, order: :ASC %>
+    <%= link_to "Latest", sort: :created_at, order: :DESC %>
+    <%= link_to "Price Increase", sort: :price, order: :ASC %>
+    <%= link_to "Price Decrease", sort: :price, order: :DESC %>
+  </div>
+</div>
