@@ -8,8 +8,7 @@ const toggleDivDisplayOnclick = () => {
       const div = document.getElementById(divId)
      
       btn.addEventListener('click', (e) => {
-        e.preventDefault()
-   
+        // e.preventDefault()
         div.style.display === "block" ?  div.style.display = 'none' : div.style.display = 'block';
       } )
     }
