@@ -12,10 +12,12 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2> <%= @nft.name.capitalize %></h2>
           <% if current_user == @nft.user %>
-            <%= link_to edit_nft_path do %><i class="fas fa-edit text-link"></i><% end %>
-            <%= link_to nft_path(@nft, { redirect_to: nfts_path }), method: :delete, data: { confirm: "Are you sure?"} do %>
-              <i class="fas fa-trash-alt text-link"></i>
-            <% end %>
+            <div>
+              <%= link_to edit_nft_path do %><i class="fas fa-edit text-link"></i><% end %>
+              <%= link_to nft_path(@nft, { redirect_to: nfts_path }), method: :delete, data: { confirm: "Are you sure?"} do %>
+                <i class="fas fa-trash-alt text-link"></i>
+              <% end %>
+              </div>
           <% end %>
         </div>
         <div class="text-muted mb-3"><%= @nft.address %></div>
