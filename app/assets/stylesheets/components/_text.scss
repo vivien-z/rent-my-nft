@@ -4,3 +4,12 @@
     color: $m-black;
   }
 }
+
+.text-link-dk {
+  color: $m-black;
+  &:hover {
+    text-decoration: none;
+    color: $m-black;
+    opacity: 0.6;
+  }
+}

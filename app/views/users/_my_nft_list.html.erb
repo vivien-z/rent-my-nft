@@ -1,17 +1,25 @@
 <% @user.nfts.each do |nft| %>
-  <%= link_to nft_path(nft), class: "card-long" do %>
+  
+  <div class="card-long mb-3 d-flex">
       <div>
         <% if nft.image.attached? %>
-          <%= cl_image_tag nft.image.key, class: "card-long-image", width: 200, height: 200, crop: :fill, gravity: "faces" %>
+          <%= cl_image_tag nft.image.key, class: "card-long-image", width: 160, height: 160, crop: :fill, gravity: "faces" %>
         <% else %>
             <img src="https://res.cloudinary.com/vivienz/image/upload/v1622743600/utamb4q9bjfe5st9zumg0wxlxo2r.jpg" alt="pic" class="card-long-image">
         <% end %>
       </div>
-      <div class="card-long-info border">
-        <h4><%= link_to "#{nft.name.capitalize}", nft_path(nft) %></h4>
-        <%= link_to "Edit", edit_nft_path(nft) %>
-        <%= link_to "Delete", nft_path(nft, { redirect_to: user_path(current_user) }),
-          method: :delete, data: { confirm: "Are you sure?"}, class: '' %>
+      <div class="card-long-info flex-column">
+        <div>
+          <h5><%= link_to "#{nft.name.capitalize}", nft_path(nft) %></h5>
+          <div>
+            <%= link_to edit_nft_path do %><i class="fas fa-edit text-link"></i><% end %>
+            <%= link_to nft_path(nft, { redirect_to: nfts_path }), method: :delete, data: { confirm: "Are you sure?"} do %>
+              <i class="fas fa-trash-alt text-link"></i>
+            <% end %>
+          </div>
+        </div>
+        <h6><%= number_to_currency(nft.price) %> / Day</h6>
       </div>
-  <% end %>
+  </div>
+  
 <% end %>

@@ -1,5 +1,5 @@
 .card-long {
-  width: 200px;
+  width: 360px;
   overflow: hidden;
   background: white;
   border: none;
@@ -21,7 +21,7 @@
 }
 
 .card-long > img {
-  height: 200px;
+  height: 160px;
   width: 100%;
   object-fit: cover;
 }
@@ -37,6 +37,12 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+}
+.card-long-info h5 a {
+  color: $m-black;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.6;
+  }
 }

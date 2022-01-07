@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row mb-3"><h4>My NFT Listings</h4></div>
-  <div class="row">
+  <div class="row d-flex justify-content-between">
     <% if @user.nfts.count > 0 %>
       <%= render 'my_nft_list' %>
     <% else %>
@@ -14,12 +14,14 @@
 </div>
 
 <div class="container">
-  <div class="row mb-5"><h4>My Reservations</h4></div>
+  <div class="row my-3"><h4>My Reservations</h4></div>
   <div class="row">
     <% if @user.reservations.count > 0 %>
       <%= render 'nft_reservation' %>
     <% else %>
-      <%= link_to "Explore", nfts_path, class: "" %>
+      <%= link_to nfts_path, class: "text-link-dk" do %>
+        <i class="fas fa-arrow-right"></i> Explore
+      <% end %>
     <% end %>
   </div>
 </div>
