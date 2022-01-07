@@ -4,7 +4,7 @@
       <div class="card">
         <div>
           <% if nft.image.attached? %>
-            <%= cl_image_tag nft.image.key, class: "card-image" %>
+            <%= cl_image_tag nft.image.key, class: "card-image", width: 260, height: 260, crop: :fill, gravity: "faces" %>
           <% else %>
               <img src="https://res.cloudinary.com/vivienz/image/upload/v1622743600/utamb4q9bjfe5st9zumg0wxlxo2r.jpg" alt="pic" class="card-image">
           <% end %>
