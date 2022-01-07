@@ -1,0 +1,17 @@
+<% @user.nfts.each do |nft| %>
+  <%= link_to nft_path(nft), class: "card-long" do %>
+      <div>
+        <% if nft.image.attached? %>
+          <%= cl_image_tag nft.image.key, class: "card-long-image", width: 200, height: 200, crop: :fill, gravity: "faces" %>
+        <% else %>
+            <img src="https://res.cloudinary.com/vivienz/image/upload/v1622743600/utamb4q9bjfe5st9zumg0wxlxo2r.jpg" alt="pic" class="card-long-image">
+        <% end %>
+      </div>
+      <div class="card-long-info border">
+        <h4><%= link_to "#{nft.name.capitalize}", nft_path(nft) %></h4>
+        <%= link_to "Edit", edit_nft_path(nft) %>
+        <%= link_to "Delete", nft_path(nft, { redirect_to: user_path(current_user) }),
+          method: :delete, data: { confirm: "Are you sure?"}, class: '' %>
+      </div>
+  <% end %>
+<% end %>

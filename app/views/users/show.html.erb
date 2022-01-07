@@ -1,18 +1,25 @@
 <div class="container">
-  <h2>My Profile</h2>
+  <div class="row justify-content-center my-5"><h2>My Profile</h2></div>
+</div>
 
-  <h4>My NFT Listings</h4>
-  <% if @user.nfts.count > 0 %>
-    <%= render 'nft_listing' %>
-  <% else %>
-    <%= link_to "+ NFT", new_nft_path, class: "" %>
-  <% end %>
+<div class="container">
+  <div class="row mb-3"><h4>My NFT Listings</h4></div>
+  <div class="row">
+    <% if @user.nfts.count > 0 %>
+      <%= render 'my_nft_list' %>
+    <% else %>
+      <%= link_to "+ NFT", new_nft_path, class: "" %>
+    <% end %>
+  </div>
+</div>
 
-  <h4>My Reservations</h4>
-  <% if @user.reservations.count > 0 %>
-    <%= render 'nft_reservation' %>
-  <% else %>
-    <%= link_to "Explore", nfts_path, class: "" %>
-  <% end %>
-
+<div class="container">
+  <div class="row mb-5"><h4>My Reservations</h4></div>
+  <div class="row">
+    <% if @user.reservations.count > 0 %>
+      <%= render 'nft_reservation' %>
+    <% else %>
+      <%= link_to "Explore", nfts_path, class: "" %>
+    <% end %>
+  </div>
 </div>

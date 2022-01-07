@@ -1,0 +1,42 @@
+.card-long {
+  width: 200px;
+  overflow: hidden;
+  background: white;
+  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    text-decoration: none;
+    position: relative;
+    animation-name: jump;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes jump {
+  0%   {top: 0;}
+  40%  {top: -0.45em;}
+  100% {top: 0;}
+}
+
+.card-long > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-long h2 {
+  color: $m-black;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-long .card-long-info {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
