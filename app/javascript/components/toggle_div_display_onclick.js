@@ -8,12 +8,13 @@ const toggleDivDisplayOnclick = () => {
       const div = document.getElementById(divId)
      
       btn.addEventListener('click', (e) => {
-        // e.preventDefault()
         div.style.display === "block" ?  div.style.display = 'none' : div.style.display = 'block';
-      } )
+        if (divId === "map") {
+          const nfts = document.getElementById('nft-list')
+          nfts.classList.contains("fullsize") ? nfts.classList.remove("fullsize") : nfts.classList.add("fullsize")
+        }
+      })
     }
-   
-   
   }
 }
 
