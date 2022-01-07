@@ -1,0 +1,6 @@
+.text-link {
+  color: rgb(173, 181, 189);
+  &:hover {
+    color: $m-black;
+  }
+}
