@@ -1,10 +1,9 @@
 <% if @nfts %>
   <% @nfts.each do |nft| %>
-    <%= link_to nft_path(nft) do %>
-      <div class="card">
+    <%= link_to nft_path(nft), class: "card" do %>
         <div>
           <% if nft.image.attached? %>
-            <%= cl_image_tag nft.image.key, class: "card-image" %>
+            <%= cl_image_tag nft.image.key, class: "card-image", width: 260, height: 260, crop: :fill, gravity: "faces" %>
           <% else %>
               <img src="https://res.cloudinary.com/vivienz/image/upload/v1622743600/utamb4q9bjfe5st9zumg0wxlxo2r.jpg" alt="pic" class="card-image">
           <% end %>
@@ -13,7 +12,6 @@
             <h2><%= nft.name.capitalize %></h2>
             <h2 class="card-price"><%= number_to_currency(nft.price) %></h2>
         </div>
-      </div>
     <% end %>
   <% end %>
 <% else %>

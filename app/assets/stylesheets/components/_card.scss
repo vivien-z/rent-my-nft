@@ -1,19 +1,27 @@
 .card {
+  width: 260px;
   overflow: hidden;
   background: white;
   border: none;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  a:hover {
-    text-decoration: none;
-  }
   &:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.6);
- 
+    text-decoration: none;
+    position: relative;
+    animation-name: jump;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
   }
 }
 
+@keyframes jump {
+  0%   {top: 0;}
+  40%  {top: -0.45em;}
+  100% {top: 0;}
+}
+
 .card > img {
-  height: 300px;
+  height: 260px;
   width: 100%;
   object-fit: cover;
 }

@@ -4,13 +4,14 @@
     <%= render 'filter_tab' %>
   </div>
 
-  <div class="row d-flex">
-    <div class="d-flex">
+  <div class="content-main row">
+    <div class="cards">
       <%= render 'list_nfts' %>
     </div>
 
     <div id="map"
-      style="width: 60%; height: calc(100vh - 160px); display: block;"
+      class="map"
+      style="display: block;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
