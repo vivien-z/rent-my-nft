@@ -1,15 +1,16 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="border">
+
+  <div class="row d-flex justify-content-center my-5">
+    <div class="mr-3">
       <% if @nft.image.attached? %>
-        <%= cl_image_tag @nft.image.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @nft.image.key, width: 400, crop: :fill %>
       <% else %>
           <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" alt="pic" class="card-image-show-default">
       <% end %>
     </div>
-    <div class="border">
+    <div class="d-flex flex-column px-3 py-2">
         <h2> <%= @nft.name.capitalize %></h2>
-        <div class="">
+        <div>
           <% if current_user == @nft.user %>
             <div class="top-right-button">
               <%= link_to "Edit", edit_nft_path %>
@@ -17,20 +18,40 @@
             </div>
           <% end %>
         </div>
-        <div><%= number_to_currency(@nft.price) %> /day</div>
-        <div><%= @nft.address %></div>
-        <div><%= @nft.description %></div>
+        <div class="text-muted mb-3"><%= @nft.address %></div>
+        <div class="mb-3"><h5>Price</h5><%= number_to_currency(@nft.price) %> /day</div>
+        <div><h5>Description</h5><%= @nft.description %></div>
+        <% if current_user != @nft.user %>
+          <div class="mt-auto btn btn-dark btn-block" data-toggle="modal" data-target="#makeReservationModal">
+            Make a Reservation
+          </div>
+        <% end %>
     </div>
   </div>
-  <div class="row d-flex justify-content-center">reservation form to be added</div>
-  <% if current_user != @nft.user %>
-    <div class="reservation-form p-4">
-      <%= simple_form_for [@nft, @reservation] do |f| %>
-        <%= f.input :starting_date, as: :string, required: false, input_html: {id: "start_date"} %>
-        <%= f.input :ending_date, as: :string, required: false, input_html: {id: "end_date"} %>
-        <%= f.button :submit, "Reserve", class: "btn btn-dark" %>
-      <% end %>
-    </div>
-  <% end %>
+
 </div>
- 
+
+<!-- Modal -->
+  <div id="makeReservationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Make a Reservation</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <% if current_user != @nft.user %>
+            <div class="reservation-form">
+              <%= simple_form_for [@nft, @reservation] do |f| %>
+                <%= f.input :starting_date, as: :string, required: false, input_html: {id: "start_date"} %>
+                <%= f.input :ending_date, as: :string, required: false, input_html: {id: "end_date" } %>
+                <%= f.button :submit, "Reserve", class: "btn btn-dark" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!-- Modal end -->
