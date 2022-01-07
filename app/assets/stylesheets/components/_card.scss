@@ -1,33 +1,23 @@
-// cards hover motion
-.cards a:hover {
-  text-decoration: none;
-  .card{
-    position: relative;
-    animation-name: jump;
-    animation-duration: 0.4s;
-    animation-timing-function: linear;
-  }
-}
-@keyframes jump {
-  0%   {top: 0;}
-  40%  {top: -0.45em;}
-  100% {top: 0;}
-}
-//---------------------
-
 .card {
   width: 260px;
   overflow: hidden;
   background: white;
   border: none;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  h2:hover {
-    // text-decoration: none;
-  }
   &:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    // text-decoration: none;
+    text-decoration: none;
+    position: relative;
+    animation-name: jump;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
   }
+}
+
+@keyframes jump {
+  0%   {top: 0;}
+  40%  {top: -0.45em;}
+  100% {top: 0;}
 }
 
 .card > img {
@@ -50,66 +40,3 @@
   align-items: flex-end;
   position: relative;
 }
-
-// .content-main {  
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   // grid-template-rows: 1fr 1fr 1fr;
-//   gap: 0px 0px;
-//   grid-auto-flow: row;
-//   grid-template-areas:
-//     "cards map map map";
-//     // "cards map map map"
-//     // "cards map map map";
-// }
-
-// .cards { grid-area: cards; }
-// .map { grid-area: map; }
-
-// // Smallest device
-// @media (min-width: 100px) and (max-width: 575px) {
-//   .content-main {
-//     grid-template-columns: 1fr;
-//     grid-template-rows: 1fr 1fr;
-//     grid-template-areas:
-//       "map"
-//       "cards";
-//   }
-// }
-
-// // Small devices (landscape phones, 576px and up)
-// @media (min-width: 576px) {
-//   .content-main {
-//     grid-template-columns: 1fr;
-//     grid-template-rows: 1fr 1fr;
-//     grid-template-areas:
-//       "map"
-//       "cards";
-//   }
-// }
-
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {
-//   .content-main {
-//     grid-template-columns: 1fr 1fr;
-//     // grid-template-rows: 1fr 1fr;
-//     grid-template-areas:
-//       "cards map";
-//   }
-// }
-
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) {
-//   // .content-main {
-//   //   grid-template-columns: 1fr 1fr 1fr;
-//   //   grid-template-areas:
-//   //   "cards map map";
-//   // }
-// }
-
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) {
-//   // .content-main {
-//   //   grid-template-columns: 1fr 1fr 1fr;
-//   // }
-// }

@@ -1,10 +1,17 @@
 .content-main {  
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   .cards {
-    width: 30%;
+    width: 26%;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
     height: calc(100vh - 160px);
     overflow-x: hidden;
+    .card {
+      margin-bottom: 0.5rem;
+    }
   }
   .map {
     width: 70%;
@@ -12,65 +19,57 @@
   }
 }
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+// Smallest device Small devices (landscape phones, 576px and up)
+@media (min-width: 100px) and (max-width: 767.98px) {
   .content-main {
-    // height: calc(100vh - 160px);
     flex-direction: column-reverse;
     align-content: center;
+    justify-content: space-evenly;
     .cards {
-      display: flex;
-      flex-direction: row;
-      overflow-y: hidden;
+      flex-direction: column;
       overflow-x: scroll;
-      height: 40%;
+      height: 340px;
       width: 90%;
-
+      .card {
+        margin-right: 0.5rem;
+      }
+      // border-top: 2px solid $m-black;
     }
     .map {
       width: 90%;
-      height: 60%;
-      min-height: 420px;;
-    }
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .content-main {
-    .cards {
-      width: 35%;
-    }
-    .map {
-      width: 65%;
+      height: 55%;
+      min-height: 420px;
+      margin-bottom: 0.35rem;
     }
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   .content-main {
     .cards {
-      width: 35%;
+      width: 40%;
     }
     .map {
-      width: 65%;
+      width: 55%;
     }
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  // .content-main {
-  //   grid-template-columns: 1fr 1fr 1fr;
-  //   grid-template-areas:
-  //   "cards map map";
-  // }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .content-main {
+    .cards {
+      width: 30%;
+    }
+    .map {
+      width: 65%;
+    }
+  }
+
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  // .content-main {
-  //   grid-template-columns: 1fr 1fr 1fr;
-  // }
+
 }
