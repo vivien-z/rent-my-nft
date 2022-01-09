@@ -13,3 +13,11 @@
     opacity: 0.6;
   }
 }
+
+.text-link-wt {
+  color: rgba(255, 255, 255, 1);
+  &:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
