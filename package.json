@@ -1,7 +1,6 @@
 {
   "name": "rent-my-nft",
   "private": true,
-  "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
