@@ -14,11 +14,6 @@
   }
 }
 
-@keyframes jump {
-  0%   {top: 0;}
-  40%  {top: -0.45em;}
-  100% {top: 0;}
-}
 
 .card-long > img {
   height: 160px;
@@ -45,4 +40,39 @@
     text-decoration: none;
     opacity: 0.6;
   }
+}
+
+.card-long-sm {
+  width: 420px;
+  overflow: hidden;
+  background: white;
+  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    text-decoration: none;
+    position: relative;
+    animation-name: jump;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+  }
+}
+
+.card-long-sm-img {
+  width: 80px;
+  height: 80px;
+  .img{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.card-long-sm-title {
+  font-weight: bold;
+}
+
+@keyframes jump {
+  0%   {top: 0;}
+  40%  {top: -0.45em;}
+  100% {top: 0;}
 }

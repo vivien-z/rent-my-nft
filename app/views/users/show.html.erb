@@ -15,7 +15,7 @@
 
 <div class="container">
   <div class="row my-3"><h4>My Reservations</h4></div>
-  <div class="row">
+  <div class="row d-flex flex-column">
     <% if @user.reservations.count > 0 %>
       <%= render 'nft_reservation' %>
     <% else %>
