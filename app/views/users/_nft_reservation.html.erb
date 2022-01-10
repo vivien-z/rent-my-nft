@@ -1,5 +1,5 @@
 <% @user.reservations.each do |reservation| %>
-    <div class="card-long-sm d-flex align-items-center">
+    <div class="card-long-sm d-flex align-items-center mb-3">
 
       <%= link_to nft_path(reservation.nft), class: "card-long-sm-img mr-3" do %>
         <% if reservation.nft.image.attached? %>
