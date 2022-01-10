@@ -1,25 +1,31 @@
-# README
+# RenT my NFT App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A platform on which users can list and rent out their NFT arts for profit, or rent a nice NFT art to decorate their virtual event at a reasonable price.
 
-Things you may want to cover:
+### Deployment
+  Deployed with Heroku
+  live link: https://rent-my-nft.herokuapp.com/
 
-* Ruby version
+### Framwork
+  Ruby on Rails (~> 6.1.4, >= 6.1.4.1)
+  
+### Main language
+  Ruby version 2.7.4
 
-* System dependencies
+### Main System dependencies
+  * Baisc
+    - Login and user management: [devise](https://github.com/heartcombo/devise)
+    - Authorization: [pundit](https://github.com/varvet/pundit)
+    - Special icons: [font-awesome](https://fontawesome.com/)
+    - Style: [Bootstrap](https://getbootstrap.com/)
+    - Form: [simple_form](https://github.com/heartcombo/simple_form)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# rent-my-nft
+  * Features
+    - Search: [pg_search](https://github.com/Casecommons/pg_search)
+    - Controller function enhance: [has_scope ](https://github.com/heartcombo/has_scope)
+    - Cloud storage for images: [cloudinary](https://cloudinary.com/)
+    - Geocode conversion: [geocoder](http://www.rubygeocoder.com/)
+    - Map: [mapbox](https://www.mapbox.com/)
+ 
+  * Data
+    - Seed fake data generator: [faker](https://github.com/faker-ruby/faker)
