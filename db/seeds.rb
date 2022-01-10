@@ -31,7 +31,7 @@ add_2 = "120 Rue Peel, Montreal, QC"
 add_3 = "110 Rue Notre Dame Ouest, Montreal, QC"
 add_4 = "195 Rue Young, Montreal, QC"
 add_5 = "138 Avenue Atwater, Montreal, QC"
-add_6 = "350 Rue Saint-Paul E, Montreal, QC"
+add_6 = "350 Rue Saint-Paul Est, Montreal, QC"
 add_7 = "3415 Rue Saint-Urbain, Montreal, QC"
 addresses = [add_1, add_2, add_3, add_4, add_5, add_6, add_7]
 
