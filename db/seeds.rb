@@ -4,14 +4,13 @@ require 'faker'
 puts "destroying records..."
 User.destroy_all
 Nft.destroy_all
-# City.destroy_all
-# Plant.destroy_all
+Reservation.destroy_all
 
 puts "start seeding..."
 
 # users----------------------------------------------------------------
-nana = User.new(email: "nana@test.com" , password: "123456").create!
-yaki = User.new(email: "yaki@test.com" , password: "123456").create!
+nana = User.create!(email: "nana@test.com" , password: "123456")
+yaki = User.create!(email: "yaki@test.com" , password: "123456")
 puts "created users"
 
 # nft------------------------------------------------------------------
@@ -41,14 +40,10 @@ imgs.each_with_index do |img, i|
   nft = Nft.new(
             name: Faker::Name.last_name,
             price: Faker::Number.decimal(l_digits: 3, r_digits: 2),
-            address: addresses[i]
+            address: addresses[i],
             description: Faker::Quotes::Shakespeare.as_you_like_it_quote)
   nft.image.attach(io: imgs[i], filename: "#{nft.name}.jpg", content_type: 'image/jpg')
-  if (i < 4) {
-    nft.user = nana
-  } else {
-    nft.user = yaki
-  }
+  (i < 4) ? nft.user = nana : nft.user = yaki
   nft.save!
 end
 puts "created nft listings"
